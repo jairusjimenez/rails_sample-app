@@ -1,7 +1,7 @@
 User.create!(name:  "Jairus Jimenez",
 			             email: "jairusjimenez@live.com",
-			             password:              "QWEASD21",
-			             password_confirmation: "QWEASD21",
+			             password:              "123456",
+			             password_confirmation: "123456",
 			             admin: true,
 			             activated: true,
 			             activated_at: Time.zone.now)
@@ -16,4 +16,10 @@ User.create!(name:  "Jairus Jimenez",
 		password_confirmation: password,
 		activated: true,
 		activated_at: Time.zone.now)
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+	content = Faker::Hacker.say_something_smart
+	users.each { |user| user.microposts.create!(content: content) }
 end
