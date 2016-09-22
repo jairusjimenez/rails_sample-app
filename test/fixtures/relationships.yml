@@ -1,0 +1,15 @@
+one:
+  follower: jairus
+  followed: lana
+
+two:
+  follower: malory
+  followed: lana
+
+three:
+  follower: lana
+  followed: jairus
+
+four:
+  follower: archer
+  followed: jairus

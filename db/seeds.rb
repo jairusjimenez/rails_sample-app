@@ -1,3 +1,4 @@
+# Users
 User.create!(name:  "Jairus Jimenez",
 			             email: "jairusjimenez@live.com",
 			             password:              "123456",
@@ -18,8 +19,17 @@ User.create!(name:  "Jairus Jimenez",
 		activated_at: Time.zone.now)
 end
 
+# Microposts
 users = User.order(:created_at).take(6)
 50.times do
 	content = Faker::Hacker.say_something_smart
 	users.each { |user| user.microposts.create!(content: content) }
 end
+
+# Following relationships
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
